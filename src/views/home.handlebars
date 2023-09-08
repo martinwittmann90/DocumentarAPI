@@ -1,0 +1,134 @@
+<nav>
+  <div class='desktopshopheader1-container'>
+    <div class='desktopshopheader1-desktopshopheader1'>
+      <div class='desktopshopheader1-navbarstyle8navbarlight'>
+        <div class='desktopshopheader1-navbarlight'>
+          <div class='desktopshopheader1-navbarbrand'><span class='desktopshopheader1-text h3'>Nische Store</span></div>
+          <div class='desktopshopheader1-collapsenavbarcollapse'>
+            <div class='desktopshopheader1-navbarnav'>
+              <div class='desktopshopheader1-li'>
+                <div class='desktopshopheader1-a'><span class='desktopshopheader1-text02 link'>Home</span></div>
+              </div>
+              <div class='desktopshopheader1-dropdown'>
+                <div class='desktopshopheader1-dropdowntoggle'><span class='desktopshopheader1-text04'>Shop</span></div>
+              </div>
+              <div class='desktopshopheader1-li1'>
+                <div class='desktopshopheader1-a1'><span class='desktopshopheader1-text06 link'>Contact</span></div>
+              </div>
+            </div>
+            {{#if session}}
+            <div class='desktopshopheader1-navbarnav1'>
+              <div class='desktopshopheader1-li2'>
+                <div class='desktopshopheader1-a2'>
+                  <div class='desktopshopheader1-btn32'>
+                    <a href='/?login=true'>
+                    <img src='/images/login.png' alt='Icono login' class='desktopshopheader1-icnsettingsicnxs' />
+                      <span class='desktopshopheader1-text08 link1'>{{session.firstName}}</span>
+                    </a>
+                    <button id='logout-btn' type='submit'>Logout</button>
+                  </div>
+                </div>
+              </div>
+            {{else}}
+              <div class='desktopshopheader1-navbarnav1'>
+                <div class='desktopshopheader1-li2'>
+                  <div class='desktopshopheader1-a2'>
+                    <div class='desktopshopheader1-btn32'>
+                      <a href='/?login=true'>
+                      <img src='/images/login.png' alt='Icono login' class='desktopshopheader1-icnsettingsicnxs' />
+                      <span class='desktopshopheader1-text08 link1'>
+                        <span>Login</span>
+                      </span>
+                      </a>
+                      <a href='/?register=true'>Registro</a>
+                    </div>
+                  </div>
+                </div>
+            {{/if}}
+              <div class='desktopshopheader1-li3'>
+                <div class='desktopshopheader1-a3'>
+                  <div class='desktopshopheader1-btn321'>
+                    <img src='/images/lupa.png' alt='Lupa' class='desktopshopheader1-icnsettingsicnxs1' />
+                  </div>
+                </div>
+              </div>
+              <div class='desktopshopheader1-li4'>
+                <div class='desktopshopheader1-a4'>
+                  <div class='desktopshopheader1-btn322'>
+                    <img src='/images/carrito.png' alt='carrito' class='desktopshopheader1-icnsettingsicnxs2' />
+                  </div>
+                </div>
+              </div>
+              <div class='desktopshopheader1-li5'>
+                <div class='desktopshopheader1-a5'>
+                  <div class='desktopshopheader1-btn323'>
+                    <img src='/images/corazon.png' alt='icnsettingsicnxs8081' class='desktopshopheader1-icnsettingsicnxs3' />
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<section>
+  <div class='desktopshopheader1-containerfluid'>
+    <div class='desktopshopheader1-colmd6'>
+      <h5 class='desktopshopheader1-text10 h5'><span>INTER MIAMI</span></h5>
+      <h3 class='desktopshopheader1-text12'>
+        MESSI<br>
+        COLLECTION
+      </h3>
+      <h4 class='desktopshopheader1-text17 h4'>
+        Nueva camiseta titular de Inter Miami<br>
+        para los fanáticos del mejor jugador del mundo
+      </h4>
+      <div class='desktopshopheader1-cta'>
+        <button class='desktopshopheader1-buttonbtnprimarycolorbtnlg' onclick="location.href='/products'">
+        <h3 class='desktopshopheader1-text22 h31'>SHOP NOW</h3>
+        </button>
+      </div>
+    </div>
+    <img src='/images/Vector 14.png' alt='Vector' class='desktopshopheader1-vector14' />
+    <img src='/images/messi5.png' alt='Image Messi Tshirt 2' class='desktopshopheader1-image64' />
+    <img src='/images/messi2.png' alt='Image Messi Tshirt 1' class='desktopshopheader1-image61' />
+    <img src='/images/messi1.png' alt='Image Messi' class='desktopshopheader1-image62' />
+    <img src='/images/messi4.png' alt='Image Messi and Alba' class='desktopshopheader1-image60' />
+    <img src='/images/messi3.png' alt='Image Jordi Alba' class='desktopshopheader1-image63' />
+  </div>
+</section>
+{{!-- <section>
+  <nav>
+    <div class='dashboard-container'>
+      <img src='https://i.ibb.co/nrNMjtT/logo.png' whidth='70' style='max-height: max-content;' />
+      {{#if session}}
+        <p class='welcome-message'>Bienvenido, {{session.firstName}}</p>
+        <button id='logout-btn' type='submit' class='averageButton'>Logout</button>
+        <button class='averageButton' onclick="location.href='/products'">Ir a productos</button>
+      {{else}}
+        <p class='guest-message'>Bienvenido a la tienda</p>
+        <a href='/?login=true' class='sign-in-link button is-light'>INICIAR SESIÓN</a>
+        <a href='/?register=true' class='register-link button is-primary'>REGISTRO</a>
+      {{/if}}
+    </div>
+  </nav>
+  <img src='https://i.ibb.co/WBc0hJG/cesped-futbol.jpg' alt='cespedFutbol' class='background-image' />
+  <div id='carousel-container'>
+    <div class='carousel'>
+      <div class='carousel-item active'>
+        <img src='https://i.ibb.co/4dJB6DR/camiseta-Argentina.png' alt='Imagen 1' />
+      </div>
+      <div class='carousel-item hidden'>
+        <img src='https://i.ibb.co/jMmCR7f/camiseta-Croacia.png' alt='Imagen 2' />
+      </div>
+      <div class='carousel-item hidden'>
+        <img src='https://i.ibb.co/4NykKFH/camiseta-Holanda.png' alt='Imagen 2' />
+      </div>
+      <div class='carousel-item hidden'>
+        <img src='https://i.ibb.co/bmccp6d/camisetas-Brasil.png' alt='Imagen 2' />
+      </div>
+    </div>
+  </div>
+</section> --}}
+<script src='/js/profile.js'></script>
+<script src='/js/home.js'></script>
