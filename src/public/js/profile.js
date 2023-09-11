@@ -30,3 +30,17 @@ logoutBtn.onclick = async () => {
     }, 2500);
   }
 };
+
+// SEARCH BAR
+const searchIcon = document.getElementById('search-icon');
+const searchBox = document.getElementById('search-box');
+const searchIconImg = document.getElementById('search-icon-img');
+const searchInput = document.getElementById('search-input');
+searchIconImg.addEventListener('click', () => {
+  if (searchBox.style.display === 'none' || !searchBox.style.display) {
+    searchBox.style.display = 'block';
+    searchInput.focus();
+  } else {
+    searchBox.style.display = 'none';
+  }
+});

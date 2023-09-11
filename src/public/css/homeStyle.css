@@ -1,237 +1,80 @@
-/* styles.css */
-.desktopshopheader1-container {
-  width: 100%;
+.desktopNavbar {
   display: flex;
-  overflow: auto;
-  min-height: 100vh;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-.desktopshopheader1-desktopshopheader1 {
-  gap: 40px;
-  width: 100%;
-  height: 852px;
+.desktopNavLeft {
   display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-  background-color: var(--dl-color-default-lightbackgroundcolor);
+  justify-content: space-between;
+  align-content: center;
+  margin: 50px 0;
 }
-.desktopshopheader1-navbarstyle8navbarlight {
-  top: -40px;
-  left: 0px;
-  width: 1439px;
-  height: 136px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 1);
-}
-.desktopshopheader1-navbarlight {
-  gap: 324px;
-  top: 70px;
-  left: 0px;
-  width: 1437px;
-  height: 58px;
-  display: flex;
-  padding: 10px 30px;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-}
-.desktopshopheader1-navbarbrand {
-  gap: 10px;
-  top: 0px;
-  left: 38px;
-  width: 187px;
-  height: 58px;
-  display: flex;
-  padding: 10px;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-}
-.desktopshopheader1-text {
-  top: 13px;
-  left: 17px;
-  color: var(--dl-color-default-textcolor);
-  height: auto;
-  position: absolute;
-  text-align: left;
-  line-height: 32px;
+.desktopNavLinkLogo {
+  font-size: 30px;
   font-family: 'Montserrat', sans-serif;
 }
-.desktopshopheader1-collapsenavbarcollapse {
-  top: 0px;
-  left: 265px;
-  width: 1155px;
-  height: 58px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
+.desktopNavLink {
+  font-size: medium;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 10px;
 }
-.desktopshopheader1-navbarnav {
-  gap: 15px;
-  top: 16.5px;
-  left: 0px;
-  width: 194px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-}
-.desktopshopheader1-li {
-  width: 43px;
-  height: 24px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-a {
-  top: 0px;
-  left: 0px;
-  width: 43px;
-  height: 24px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-text02 {
-  color: var(--dl-color-default-secondtextcolor);
-  height: auto;
-  position: absolute;
-  text-align: center;
-  line-height: 24px;
+.desktopNavLog {
+  font-size: medium;
   font-family: 'Montserrat', sans-serif;
 }
-.desktopshopheader1-dropdown {
-  gap: 10px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+.desktopNavIcon {
+  padding: 0.5rem;
 }
-.desktopshopheader1-dropdowntoggle {
-  gap: 47px;
-  width: 63px;
-  height: 25px;
+.desktopNavRight {
   display: flex;
-  padding: 19px 25px;
-  overflow: hidden;
+  align-items: center;
+}
+
+/* Estilos para los enlaces desplegables */
+.dropdown {
   position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
-.desktopshopheader1-text04 {
-  top: -1px;
-  left: 6px;
-  color: var(--dl-color-default-textcolor);
-  height: auto;
-  position: absolute;
-  font-size: 14px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Montserrat;
-  font-weight: 500;
-  line-height: 28px;
-  font-stretch: normal;
+.dropdown a {
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #333;
 }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Estilos para los enlaces dentro del desplegable */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+  font-weight: normal;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/*BODY HOME*/
 .desktopshopheader1-vector {
   top: 10px;
   left: 63px;
   width: 6px;
   height: 10px;
   position: absolute;
-}
-.desktopshopheader1-li1 {
-  width: 58px;
-  height: 24px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-a1 {
-  top: 0px;
-  left: 0px;
-  width: 58px;
-  height: 24px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-text06 {
-  color: var(--dl-color-default-secondtextcolor);
-  height: auto;
-  position: absolute;
-  text-align: center;
-  line-height: 24px;
-  font-family: 'Montserrat', sans-serif;
-}
-.desktopshopheader1-navbarnav1 {
-  top: 2px;
-  left: 783px;
-  width: 324px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-}
-.desktopshopheader1-li2 {
-  width: 166px;
-  height: 54px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-a2 {
-  top: 0px;
-  left: 0px;
-  width: 166px;
-  height: 54px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-btn32 {
-  gap: 5px;
-  top: 0px;
-  left: 0px;
-  width: 166px;
-  display: flex;
-  padding: 15px;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  border-radius: 37px;
-}
-.desktopshopheader1-icnsettingsicnxs {
-  width: 12px;
-  height: 12px;
-}
-.desktopshopheader1-text08 {
-  color: var(--dl-color-default-primary);
-  height: auto;
-  text-align: center;
-  line-height: 24px;
-  font-family: 'Montserrat', sans-serif;
 }
 .desktopshopheader1-li3 {
   width: 46.00060272216797px;
@@ -242,108 +85,9 @@
   align-items: flex-start;
   flex-shrink: 0;
 }
-.desktopshopheader1-a3 {
-  top: 0px;
-  left: 0px;
-  width: 46px;
-  height: 46.000301361083984px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-btn321 {
-  gap: 5px;
-  top: 0px;
-  left: 0px;
-  width: 46px;
-  display: flex;
-  padding: 15px;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  border-radius: 37px;
-}
-.desktopshopheader1-icnsettingsicnxs1 {
-  width: 16px;
-  height: 16px;
-}
-.desktopshopheader1-li4 {
-  width: 56px;
-  height: 46px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-a4 {
-  top: 0px;
-  left: 0px;
-  width: 56px;
-  height: 46px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-btn322 {
-  gap: 5px;
-  top: 0px;
-  left: 0px;
-  width: 46px;
-  display: flex;
-  padding: 15px;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  border-radius: 37px;
-}
-.desktopshopheader1-icnsettingsicnxs2 {
-  width: 16px;
-  height: 16px;
-}
-.desktopshopheader1-li5 {
-  width: 56px;
-  height: 46px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-a5 {
-  top: 0px;
-  left: 0px;
-  width: 56px;
-  height: 46px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.desktopshopheader1-btn323 {
-  gap: 5px;
-  top: 0px;
-  left: 0px;
-  width: 46px;
-  display: flex;
-  padding: 15px;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  border-radius: 37px;
-}
-.desktopshopheader1-icnsettingsicnxs3 {
-  width: 16px;
-  height: 16px;
-}
-.desktopshopheader1-containerfluid {
+.homeBodyBanner {
   top: 138px;
-  left: 60px;
+  left: 50%;
   width: 1292px;
   height: 622px;
   display: flex;
@@ -353,6 +97,7 @@
   flex-shrink: 0;
   border-radius: 20px;
   background-color: rgba(5, 4, 4, 1);
+  transform: translateX(-50%);
 }
 .desktopshopheader1-colmd6 {
   gap: 30px;

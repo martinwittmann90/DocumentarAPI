@@ -1,11 +1,11 @@
 /*----------------MULTER------------------------------*/
-import { __dirname } from '../configPath.js';
+import { __dirname } from './configPath.js';
 import multer from 'multer';
 import path from 'path';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, `${__dirname}/../public/images`);
+    cb(null, __dirname + '/public/upload');
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}-${file.originalname}`);

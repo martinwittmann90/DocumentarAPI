@@ -1,4 +1,4 @@
-import { uploader } from '../utils/utils.js';
+import { uploader } from '../utils.js';
 import ServiceProducts from '../services/products.service.js';
 import CustomError from '../error/customError.js';
 import { customErrorMsg } from '../error/customErrorMessage.js';
@@ -48,35 +48,35 @@ class ProductsController {
   }
   async createOne(req, res) {
     try {
-      /*       logger.info('Create Product Controller Reached');
-      logger.debug('Form Data:', req.body); */
-      /*       uploader.single('thumbnail')(req, res, async function (err) {
-        if (err instanceof multer.MulterError) {
-          logger.error('Multer Error:', err);
-          return res.status(400).json({ error: 'Error de subida de archivo' });
-        } else if (err) {
-          logger.error('Error:', err);
-          return res.status(500).json({ error: 'Error de servidor' });
-        }
-        logger.debug('File Uploaded Successfully:', req.file); */
+      logger.info('Create Product Controller Reached');
+      logger.debug('Form Data:', req.body);
       const user = req.session.user;
       const productData = req.body;
-      if (user.role === 'premium') {
-        productData.owner = user.email;
-        const createdProduct = await serviceProducts.createProduct(productData);
-        return res.status(200).redirect('/realtimeproducts');
-      } else {
+      if (user.role !== 'premium') {
         return res.status(403).json({
           status: 'error',
           msg: 'Permission denied',
         });
       }
+      uploader.array('thumbnail')(req, res, async function (err) {
+        if (err) {
+          logger.error('Error de carga de archivo:', err);
+          return res.status(500).json({ error: 'Error de servidor' });
+        }
+        if (!req.file) {
+          logger.error('No se ha proporcionado ningún archivo');
+          return res.status(400).json({ error: 'No se ha proporcionado ningún archivo' });
+        }
+        logger.debug('Archivo subido exitosamente:', req.file);
+        productData.owner = user.email;
+        const createdProduct = await serviceProducts.createProduct(productData);
+        return res.status(200).redirect('/realtimeproducts');
+      });
     } catch (error) {
       logger.error(error.message);
       res.status(500).json({ status: 'error', msg: error.message });
     }
   }
-
   async updateOne(req, res) {
     try {
       const productId = req.params.id;

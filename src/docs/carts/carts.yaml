@@ -1,170 +1,176 @@
 openapi: 3.0.0
 info:
-  title: Nische Store API Carts
-  version: 1.0.0
+  title: 'API de Carritos de Nische Store'
+  version: '1.0.0'
+  description: 'Documentación de la API de Carritos para Nische Store'
+servers:
+  - url: 'http://localhost:8000'
 paths:
   /api/carts:
     post:
-      summary: Crea un nuevo carrito.
+      summary: Crear un nuevo carrito
+      tags:
+        - Carrito
       responses:
         '201':
-          description: Carrito creado exitosamente.
+          description: Carrito creado exitosamente
     get:
-      summary: Obtiene todos los carritos.
+      summary: Obtener todos los carritos
+      tags:
+        - Carrito
       responses:
         '200':
-          description: Lista de carritos exitosamente obtenida.
+          description: Lista de carritos
   /api/carts/{cid}:
     get:
-      summary: Obtiene un carrito por ID.
+      summary: Obtener un carrito por ID
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito a obtener.
           required: true
+          description: ID del carrito a recuperar
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
-          description: Carrito obtenido exitosamente.
+          description: Carrito recuperado exitosamente
         '404':
-          description: Carrito no encontrado.
+          description: Carrito no encontrado
     put:
-      summary: Actualiza un carrito por ID.
+      summary: Actualizar un carrito
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito a actualizar.
           required: true
+          description: ID del carrito a actualizar
           schema:
-            type: integer
-            format: int64
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product:
+                        type: string
+                        description: ID del producto
+                      quantity:
+                        type: integer
+                        description: Cantidad del producto
       responses:
         '200':
-          description: Carrito actualizado exitosamente.
-        '404':
-          description: Carrito no encontrado.
+          description: Carrito actualizado exitosamente
     delete:
-      summary: Elimina un carrito por ID.
+      summary: Eliminar un carrito por ID
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito a eliminar.
           required: true
+          description: ID del carrito a eliminar
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
-        '204':
-          description: Carrito eliminado exitosamente.
+        '200':
+          description: Carrito eliminado exitosamente
         '404':
-          description: Carrito no encontrado.
+          description: Carrito no encontrado
   /api/carts/{cid}/product/{pid}:
     post:
-      summary: Agrega un producto a un carrito.
+      summary: Agregar un producto a un carrito
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito al que se agregará el producto.
           required: true
+          description: ID del carrito al que se agregará el producto
           schema:
-            type: integer
-            format: int64
+            type: string
         - name: pid
           in: path
-          description: ID del producto a agregar al carrito.
           required: true
+          description: ID del producto a agregar al carrito
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
-          description: Producto agregado exitosamente al carrito.
-        '404':
-          description: Carrito o producto no encontrado.
+          description: Producto agregado al carrito exitosamente
+        '403':
+          description: Permiso denegado
     delete:
-      summary: Elimina un producto de un carrito por ID.
+      summary: Eliminar un producto de un carrito
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito del que se eliminará el producto.
           required: true
+          description: ID del carrito del que se eliminará el producto
           schema:
-            type: integer
-            format: int64
+            type: string
         - name: pid
           in: path
-          description: ID del producto a eliminar del carrito.
           required: true
+          description: ID del producto a eliminar del carrito
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
-        '204':
-          description: Producto eliminado exitosamente del carrito.
+        '200':
+          description: Producto eliminado del carrito exitosamente
         '404':
-          description: Carrito o producto no encontrado.
-  /api/carts/{cid}/empty:
+          description: Producto o carrito no encontrado
+  /api/carts/empty/{cid}:
     delete:
-      summary: Vacía un carrito por ID.
+      summary: Vaciar un carrito
+      tags:
+        - Carrito
       parameters:
         - name: cid
           in: path
-          description: ID del carrito a vaciar.
           required: true
+          description: ID del carrito a vaciar
           schema:
-            type: integer
-            format: int64
-      responses:
-        '204':
-          description: Carrito vaciado exitosamente.
-        '404':
-          description: Carrito no encontrado.
-  /api/carts/{cid}/purchase:
-    get:
-      summary: Realiza el proceso de compra de un carrito por ID.
-      parameters:
-        - name: cid
-          in: path
-          description: ID del carrito a comprar.
-          required: true
-          schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
-          description: Proceso de compra exitoso.
+          description: Carrito vaciado exitosamente
         '404':
-          description: Carrito no encontrado.
-    post:
-      summary: Agrega un ticket de compra para un carrito por ID.
-      parameters:
-        - name: cid
-          in: path
-          description: ID del carrito al que se agregará el ticket de compra.
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: Ticket de compra agregado exitosamente al carrito.
-        '404':
-          description: Carrito no encontrado.
-  /api/carts/purchase/{cid}:
-    get:
-      summary: Obtiene un ticket de compra por ID de carrito.
-      parameters:
-        - name: cid
-          in: path
-          description: ID del carrito del que se obtendrá el ticket de compra.
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: Ticket de compra obtenido exitosamente.
-        '404':
-          description: Ticket de compra o carrito no encontrado.
+          description: Carrito no encontrado
+components:
+  schemas:
+    CartProduct:
+      type: object
+      properties:
+        product:
+          type: string
+          description: ID del producto
+        quantity:
+          type: integer
+          description: Cantidad del producto
+      required:
+        - product
+        - quantity
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ID del carrito
+        products:
+          type: array
+          description: Lista de productos en el carrito
+          items:
+            $ref: '#/components/schemas/CartProduct'
+      required:
+        - products

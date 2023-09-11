@@ -1,91 +1,70 @@
 <nav>
-  <div class='desktopshopheader1-container'>
-    <div class='desktopshopheader1-desktopshopheader1'>
-      <div class='desktopshopheader1-navbarstyle8navbarlight'>
-        <div class='desktopshopheader1-navbarlight'>
-          <div class='desktopshopheader1-navbarbrand'><span class='desktopshopheader1-text h3'>Nische Store</span></div>
-          <div class='desktopshopheader1-collapsenavbarcollapse'>
-            <div class='desktopshopheader1-navbarnav'>
-              <div class='desktopshopheader1-li'>
-                <div class='desktopshopheader1-a'><span class='desktopshopheader1-text02 link'>Home</span></div>
-              </div>
-              <div class='desktopshopheader1-dropdown'>
-                <div class='desktopshopheader1-dropdowntoggle'><span class='desktopshopheader1-text04'>Shop</span></div>
-              </div>
-              <div class='desktopshopheader1-li1'>
-                <div class='desktopshopheader1-a1'><span class='desktopshopheader1-text06 link'>Contact</span></div>
-              </div>
-            </div>
-            {{#if session}}
-            <div class='desktopshopheader1-navbarnav1'>
-              <div class='desktopshopheader1-li2'>
-                <div class='desktopshopheader1-a2'>
-                  <div class='desktopshopheader1-btn32'>
-                    <a href='/?login=true'>
-                    <img src='/images/login.png' alt='Icono login' class='desktopshopheader1-icnsettingsicnxs' />
-                      <span class='desktopshopheader1-text08 link1'>{{session.firstName}}</span>
-                    </a>
-                    <button id='logout-btn' type='submit'>Logout</button>
-                  </div>
-                </div>
-              </div>
-            {{else}}
-              <div class='desktopshopheader1-navbarnav1'>
-                <div class='desktopshopheader1-li2'>
-                  <div class='desktopshopheader1-a2'>
-                    <div class='desktopshopheader1-btn32'>
-                      <a href='/?login=true'>
-                      <img src='/images/login.png' alt='Icono login' class='desktopshopheader1-icnsettingsicnxs' />
-                      <span class='desktopshopheader1-text08 link1'>
-                        <span>Login</span>
-                      </span>
-                      </a>
-                      <a href='/?register=true'>Registro</a>
-                    </div>
-                  </div>
-                </div>
-            {{/if}}
-              <div class='desktopshopheader1-li3'>
-                <div class='desktopshopheader1-a3'>
-                  <div class='desktopshopheader1-btn321'>
-                    <img src='/images/lupa.png' alt='Lupa' class='desktopshopheader1-icnsettingsicnxs1' />
-                  </div>
-                </div>
-              </div>
-              <div class='desktopshopheader1-li4'>
-                <div class='desktopshopheader1-a4'>
-                  <div class='desktopshopheader1-btn322'>
-                    <img src='/images/carrito.png' alt='carrito' class='desktopshopheader1-icnsettingsicnxs2' />
-                  </div>
-                </div>
-              </div>
-              <div class='desktopshopheader1-li5'>
-                <div class='desktopshopheader1-a5'>
-                  <div class='desktopshopheader1-btn323'>
-                    <img src='/images/corazon.png' alt='icnsettingsicnxs8081' class='desktopshopheader1-icnsettingsicnxs3' />
-                  </div>
-                </div>
-              </div>
+  <div class='desktopNavbar'>
+    <span class='desktopNavLink'>Nische Store</span>
+    <div class='desktopNavLeft'>
+      <span class='desktopNavLink'>Shop</span>
+    </div>
+    <div class='desktopNavCenter'>
+    </div>
+    <div class='desktopNavRight'>
+      {{#if session}}
+        <div>
+          <a href='/api/sessions/current' class='navbar__link cartInfo' id='{{session.cartID}}'><img src='/images/login.png' alt='Icono login' />
+            <span class='desktopNavLink'>{{session.firstName}}</span></a>
         </div>
+        <div>
+          <a id='logout-btn' type='submit' class='desktopNavLink'><i class='material-icons'>exit_to_app</i>Salir</a>
+        </div>
+      {{else}}
+        <div class='desktopNavLog'>
+          <a href='/?login=true'><img src='/images/login.png' alt='Icono login' /><span class='desktopNavLink'>Login</span></a>
+        </div>
+        <div class='desktopNavLog'>
+          <a href='/?register=true' class='desktopNavLink'>Registro</a>
+        </div>
+      {{/if}}
+      <div class='search-icon' id='search-icon'>
+        <img class='desktopNavIcon material-icons' src='/images/lupa.png' alt='Lupa' id='search-icon-img' />
+      </div>
+      <div class='search-box' id='search-box'>
+        <input type='text' id='search-input' placeholder='Buscar...' />
+      </div>
+      <div>
+        <a onclick="location.href='/carts/{{session.cartID}}'"><img class='desktopNavIcon' src='/images/carrito.png' alt='carrito' /></a>
+      </div>
+      <div>
+        <img class='desktopNavIcon' src='/images/corazon.png' alt='icnsettingsicnxs8081' />
       </div>
     </div>
+    {{#if isAdmin}}
+      <div class='admin-button'>
+        <button class='button is-info' onclick="location.href='http://localhost:8080/api/sessions/adminControl'">
+          <span class='icon'><i class='material-icons'>admin_panel_settings</i></span>
+          <span>Panel de Administrador</span>
+        </button>
+      </div>
+    {{/if}}
+  </div>
+  <div class='chatButton'>
+    <button onclick="location.href='/chat'">
+      <i class='material-icons'>chat</i></button>
   </div>
 </nav>
 <section>
-  <div class='desktopshopheader1-containerfluid'>
+  <div class='homeBodyBanner'>
     <div class='desktopshopheader1-colmd6'>
       <h5 class='desktopshopheader1-text10 h5'><span>INTER MIAMI</span></h5>
       <h3 class='desktopshopheader1-text12'>
-        MESSI<br>
+        MESSI<br />
         COLLECTION
       </h3>
       <h4 class='desktopshopheader1-text17 h4'>
-        Nueva camiseta titular de Inter Miami<br>
+        Nueva camiseta titular de Inter Miami<br />
         para los fanáticos del mejor jugador del mundo
       </h4>
       <div class='desktopshopheader1-cta'>
-        <button class='desktopshopheader1-buttonbtnprimarycolorbtnlg' onclick="location.href='/products'">
-        <h3 class='desktopshopheader1-text22 h31'>SHOP NOW</h3>
+        <button class='desktopshopheader1-buttonbtnprimarycolorbtnlg' onclick="location.href='/?login=true'">
+          <h3 class='desktopshopheader1-text22 h31'>COMPRAR AHORA</h3>
         </button>
       </div>
     </div>
@@ -97,6 +76,7 @@
     <img src='/images/messi3.png' alt='Image Jordi Alba' class='desktopshopheader1-image63' />
   </div>
 </section>
+
 {{!-- <section>
   <nav>
     <div class='dashboard-container'>
